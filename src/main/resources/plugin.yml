@@ -1,0 +1,9 @@
+name: test
+version: '${project.version}'
+main: at.floticey.test.main
+api-version: '1.20'
+commands:
+  spawn:
+  warp:
+  remove:
+  guihub:
