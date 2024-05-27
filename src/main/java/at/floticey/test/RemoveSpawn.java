@@ -14,9 +14,12 @@ public class RemoveSpawn implements CommandExecutor {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
 
-            main.location = null;
-            player.sendMessage(ChatColor.RED + "Dein Spawn wurde zurückgesetzt!");
-
+            if (player.isOp()) {
+                main.location = null;
+                player.sendMessage(ChatColor.RED + "Dein Spawn wurde zurückgesetzt!");
+            } else {
+                player.sendMessage(ChatColor.RED + "Du bist nicht berechtigt einen Spawn zu setzen!");
+            }
         }
 
         return false;
