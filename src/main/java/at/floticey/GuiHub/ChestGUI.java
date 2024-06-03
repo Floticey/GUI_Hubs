@@ -29,6 +29,12 @@ public class ChestGUI implements CommandExecutor {
             limedye.setItemMeta(limedyemeta);
             inv.setItem(11, limedye);
 
+            ItemStack paper = new ItemStack(Material.PAPER);
+            ItemMeta papermeta = paper.getItemMeta();
+            papermeta.setDisplayName(ChatColor.BLACK + "Next Page");
+            paper.setItemMeta(papermeta);
+            inv.setItem(26, paper);
+
             ItemStack enderpearl = new ItemStack(Material.ENDER_PEARL);
             ItemMeta enderpearlmeta = enderpearl.getItemMeta();
             enderpearlmeta.setDisplayName(ChatColor.GOLD + "Go to Spawn");
@@ -47,7 +53,7 @@ public class ChestGUI implements CommandExecutor {
             ItemMeta framemeta = frame.getItemMeta();
             framemeta.setDisplayName("");
             frame.setItemMeta(framemeta);
-            for (int i : new int[] {1,2,3,4,5,6,7,8,9,17,18,19,20,21,22,23,24,25,26}) {
+            for (int i : new int[] {1,2,3,4,5,6,7,8,9,17,18,19,20,21,22,23,24,25}) {
                 inv.setItem(i, frame);
             }
 

@@ -7,3 +7,5 @@ commands:
   warp:
   remove:
   guihub:
+  waypoints:
+  waypointGUI:

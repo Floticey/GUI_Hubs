@@ -48,6 +48,10 @@ public class guiInteractListener implements Listener {
                     }
 
                     break;
+
+                //next page case 26:
+
+                    //break;
                 default:
                     return;
             }
