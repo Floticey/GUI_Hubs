@@ -1,5 +1,6 @@
 package at.floticey.GuiHub;
 
+import at.floticey.test.main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -10,10 +11,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-
 public class WaypointsGUI implements CommandExecutor {
 
-    int currentSlot;
+    int currentSlot = 10;
     int MAX_SLOTS_PER_ROW = 7;
     int MAX_SLOTS_PER_PAGE = 28;
     @Override
@@ -44,14 +44,18 @@ public class WaypointsGUI implements CommandExecutor {
             back.setItemMeta(backmeta);
             inv.setItem(48, back);
 
-            
-
-            //Waypoint Item
-            //ItemStack Waypoint = new ItemStack(Material.PAPER);
-            //ItemMeta waypointmeta = Waypoint.getItemMeta();
-            //waypointmeta.setDisplayName("");
-            //Waypoint.setItemMeta(waypointmeta);
-            //inv.setItem(, Waypoint);
+            for (Waypoint waypoint : main.waypoints) {
+                ItemStack waypointitem = new ItemStack(Material.PAPER);
+                ItemMeta waypointmeta = waypointitem.getItemMeta();
+                waypointmeta.setDisplayName(waypoint.name);
+                waypointitem.setItemMeta(waypointmeta);
+                inv.setItem(currentSlot, waypointitem);
+                if (currentSlot + 1 >= MAX_SLOTS_PER_PAGE)
+                        break;
+                if (currentSlot + 1 % MAX_SLOTS_PER_ROW == 0) {
+                    currentSlot += 3;
+                }
+            }
 
             player.openInventory(inv);
         }
