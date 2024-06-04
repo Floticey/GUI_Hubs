@@ -1,4 +1,4 @@
-package at.floticey.GuiHub;
+package at.floticey.waypoints.gui;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -13,7 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.Arrays;
 
-public class ChestGUI implements CommandExecutor {
+public class SpawnGUI implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] strings) {
 

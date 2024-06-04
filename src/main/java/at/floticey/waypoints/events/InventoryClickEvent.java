@@ -1,13 +1,15 @@
-package at.floticey.GuiHub;
+package at.floticey.waypoints.events;
 
-import at.floticey.test.main;
+import at.floticey.waypoints.Waypoints;
+import at.floticey.waypoints.dto.Waypoint;
+import at.floticey.waypoints.gui.WaypointsGUI;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
-public class guiInteractListener implements Listener {
+public class InventoryClickEvent implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e) {
 
@@ -22,7 +24,7 @@ public class guiInteractListener implements Listener {
 
                 case 11:
                     if (player.isOp()) {
-                        main.location = player.getLocation();
+                        Waypoints.spawnPoint = player.getLocation();
                         player.sendMessage(ChatColor.GREEN + "Spawn per GUI wurde gesetzt!");
                     } else {
                         player.sendMessage(ChatColor.RED + "Spawn per GUI konnte nicht gesetzt werden [No Permissions]");
@@ -32,6 +34,8 @@ public class guiInteractListener implements Listener {
                 case 13:
                     if (main.location != null) {
                         player.teleport(main.location);
+                    if (Waypoints.spawnPoint != null) {
+                        player.teleport(Waypoints.spawnPoint);
                         player.sendMessage(ChatColor.GREEN + "GUI Warp TP");
                     } else {
                         player.sendMessage(ChatColor.RED + "GUI Warp konnte nicht gefunden werden!");
@@ -41,7 +45,7 @@ public class guiInteractListener implements Listener {
 
                 case 15:
                     if (player.isOp()) {
-                        main.location = null;
+                        Waypoints.spawnPoint = null;
                         player.sendMessage(ChatColor.GREEN + "GUI Warp wurde zurückgesetzt!");
                     } else {
                         player.sendMessage(ChatColor.RED + "Spawn per GUI konnte nicht zurückgesetzt werden [No Permissions]");

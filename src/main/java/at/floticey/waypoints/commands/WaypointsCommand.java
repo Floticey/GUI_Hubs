@@ -1,12 +1,12 @@
-package at.floticey.GuiHub;
+package at.floticey.waypoints.commands;
 
-import at.floticey.test.main;
+import at.floticey.waypoints.dto.Waypoint;
+import at.floticey.waypoints.Waypoints;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import java.util.UUID;
 
 public class WaypointsCommand implements CommandExecutor {
     @Override
@@ -17,9 +17,8 @@ public class WaypointsCommand implements CommandExecutor {
 
             if (args.length >= 1) {
                     Waypoint waypoint = new Waypoint(player.getUniqueId(), args[0], player.getLocation());
-                    main.waypoints.add(waypoint);
-            } else {
-                player.sendMessage("error");
+                    Waypoints.waypoints.add(waypoint);
+                    player.sendMessage("Waypoint " + ChatColor.GREEN + args[0] + ChatColor.RESET + " wurde gesetzt!");
             }
         }
         return false;
