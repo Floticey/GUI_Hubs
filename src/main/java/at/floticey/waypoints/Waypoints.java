@@ -5,7 +5,6 @@ import at.floticey.waypoints.commands.SpawnCommand;
 import at.floticey.waypoints.commands.RemoveSpawnCommand;
 import at.floticey.waypoints.commands.WaypointsCommand;
 import at.floticey.waypoints.dto.Waypoint;
-import at.floticey.waypoints.events.InventoryClickEvent;
 import at.floticey.waypoints.events.PlayerJoinEvent;
 import at.floticey.waypoints.gui.SpawnGUI;
 import at.floticey.waypoints.gui.WaypointsGUI;
@@ -34,6 +33,6 @@ public final class Waypoints extends JavaPlugin {
 
             // Events
             Bukkit.getPluginManager().registerEvents(new PlayerJoinEvent(), this);
-            Bukkit.getPluginManager().registerEvents(new InventoryClickEvent(), this);
+            //Bukkit.getPluginManager().registerEvents(new InventoryClickEvent(), this);
         }
 }
