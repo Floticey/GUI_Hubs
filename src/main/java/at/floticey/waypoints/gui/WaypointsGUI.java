@@ -62,7 +62,7 @@ public class WaypointsGUI implements CommandExecutor {
                     break;
                 inv.setItem(currentSlot, waypointitem);
             }
-            player.openInventory(inv);
+            player.openInventory(inv); //test
         }
         return false;
     }
